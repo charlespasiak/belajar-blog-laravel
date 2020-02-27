@@ -14,6 +14,10 @@
 Auth::routes(); // harus diletakkan paling atas
 
 Route::get('/', 'BlogController@index');
+// Route::get('/isi_post', function() {
+//     return view('content.isi_post');
+// });
+Route::get('/isi-post/{slug}', 'BlogController@isi_blog')->name('blog.isi');
 
 // membungkus banyak route dengan route::group([]) supaya dicek apakah sudah login / belum
 Route::group(['middleware' => 'auth'], function () {
